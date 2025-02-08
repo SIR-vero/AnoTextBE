@@ -1,7 +1,7 @@
 const { pool } = require('../database.js');
 
 const findUserByUserName = async (userName) => {
-    const [rows] = await pool.query(`SELECT username FROM users WHERE username = ?`, [userName]);
+    const [rows] = await pool.query(`SELECT username, userId FROM users WHERE username = ?`, [userName]);
     return rows[0];
 }
 
@@ -55,5 +55,5 @@ const updateRefreshTokenByUserName = async (userName, refreshToken) => {
 
 module.exports = { findUserByUserName, addNewUserToDB, getUserSaltedPassByUserName, getUserRolesByUserName, updateRefreshTokenByUserName, getUserByRefreshToken, findUserByUserId}
 
-/* const test = findUserByUserName('ayush');
+/* const test = findUserByUserName('Bindu');
 test.then(res => console.log(res)); */

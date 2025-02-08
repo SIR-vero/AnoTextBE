@@ -31,6 +31,7 @@ const getMessages = async (req, res) => {
         const messages = await getMessagesByUsername(loggedInUser);
         //console.log('messages: ', messages);
         const response = {
+            userId: req.userId || "", 
             messages
         };
         res.status(200).json(response);
